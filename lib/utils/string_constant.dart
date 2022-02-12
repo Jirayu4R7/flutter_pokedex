@@ -1,0 +1,1 @@
+const String IMAGE_DUMMY_URL = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/5.png';
