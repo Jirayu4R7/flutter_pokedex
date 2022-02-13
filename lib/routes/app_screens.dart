@@ -1,5 +1,5 @@
-import 'package:pokedex/screens/list_pokemon/list_pokenmon_binding.dart';
-import 'package:pokedex/screens/list_pokemon/list_pokenmon_page.dart';
+import 'package:pokedex/screens/list_pokemon/list_pokemon_binding.dart';
+import 'package:pokedex/screens/list_pokemon/list_pokemon_page.dart';
 import 'package:get/get.dart';
 import 'app_routes.dart';
 

@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-import 'list_pokenmon_controller.dart';
+import 'list_pokemon_controller.dart';
 
 class ListPokemonBinding extends Bindings {
   @override

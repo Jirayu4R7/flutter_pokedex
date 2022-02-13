@@ -1,19 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex/models/pokemon_info_model.dart';
 
 import 'image_pokemon_view.dart';
 
 class PokemonDetailView extends StatelessWidget {
-  final String? name, frontImage, backImage;
-  final int? weight, height;
+  final PokemonInfoModel? pokemonInfo;
 
-  const PokemonDetailView(
-      {Key? key,
-      this.name,
-      this.frontImage,
-      this.backImage,
-      this.weight,
-      this.height})
-      : super(key: key);
+  const PokemonDetailView({
+    Key? key,
+    this.pokemonInfo,
+  }) : super(key: key);
 
   Widget _renderDetail({required String title, required String detail}) {
     return Row(
@@ -40,7 +36,7 @@ class PokemonDetailView extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Text(
-            name.toString(),
+            pokemonInfo?.name ?? "",
             style: Theme.of(context).textTheme.headline6,
           ),
           const SizedBox(
@@ -49,8 +45,8 @@ class PokemonDetailView extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              ImagePokenmonView(urlImage: frontImage),
-              ImagePokenmonView(urlImage: backImage),
+              ImagePokenmonView(urlImage: pokemonInfo?.frontImage ?? ""),
+              ImagePokenmonView(urlImage: pokemonInfo?.backImage ?? ""),
             ],
           ),
           const SizedBox(
@@ -63,14 +59,14 @@ class PokemonDetailView extends StatelessWidget {
             children: <Widget>[
               _renderDetail(
                 title: "Weight:",
-                detail: weight.toString(),
+                detail: pokemonInfo?.weight.toString() ?? "",
               ),
               const SizedBox(
                 width: 16.0,
               ),
               _renderDetail(
                 title: "Height:",
-                detail: height.toString(),
+                detail: pokemonInfo?.height.toString() ?? "",
               ),
             ],
           ),
