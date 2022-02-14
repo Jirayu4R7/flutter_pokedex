@@ -40,16 +40,20 @@ class ListPokemonPage extends GetView<ListPokemonController> {
                           children: [
                             Expanded(
                               child: ListView.builder(
+                                key: const Key("list_pokemon"),
                                 controller: _dx.scrollController,
                                 itemCount: _dx.listPokemon.length,
                                 itemBuilder: (context, index) {
                                   PokemonModel pokemon = _dx.listPokemon[index];
                                   return PokemonItemView(
+                                    key: Key("item_${index}_pokemon"),
                                     title: pokemon.name.toString(),
                                     onPressed: () async {
                                       if (pokemon.url != null) {
                                         Get.bottomSheet(
                                           BottomSheetView(
+                                            key: const Key(
+                                                "bottom_sheet_pokemon_info"),
                                             content: FutureBuilder(
                                               future: _dx.fetchPokemonInfo(
                                                 pokemon.url,
@@ -61,7 +65,10 @@ class ListPokemonPage extends GetView<ListPokemonController> {
                                                     pokemonInfo: snapshot.data,
                                                   );
                                                 } else {
-                                                  return const LoadingView();
+                                                  return const LoadingView(
+                                                    key: Key(
+                                                        "loading_pokemon_info"),
+                                                  );
                                                 }
                                               },
                                             ),
@@ -84,6 +91,7 @@ class ListPokemonPage extends GetView<ListPokemonController> {
                               ),
                             ),
                             LoadingView(
+                              key: const Key("loading_pokemons_more"),
                               isLoading: _dx.isLoadingMore,
                             ),
                           ],
