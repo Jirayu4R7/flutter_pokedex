@@ -1,0 +1,9 @@
+{
+  "name": "charizard",
+  "weight": 905,
+  "height": 17,
+  "sprites": {
+    "back_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/6.png",
+    "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png"
+  }
+}
